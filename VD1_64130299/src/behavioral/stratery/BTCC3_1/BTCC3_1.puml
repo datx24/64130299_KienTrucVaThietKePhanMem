@@ -1,0 +1,55 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class MonAn{
+    - String tenMonAn;
+    - int soLuong;
+    - double donGia;
+    + String toString()
+    + double tinhTien()
+}
+
+interface IPhuongThucGiaoHang {
+    double tinhPhiGiaoHang(double tongTien);
+}
+
+class GiaoHangNhanh {
+}
+
+class GiaoHangTietKiem {
+}
+
+class TuLayTaiQuan {
+}
+
+interface IHinhThucKhuyenMai {
+    double tinhTienKhuyenMai(double tongTien)
+}
+
+class GiamXTrenSoTongTien {
+}
+
+class GiamToiDaYTongTien {
+}
+
+class GioHang {
+ - List<MonAn> danhSachMonAn;
+ - IPhuongThucGiaoHang phuongThucGiaoHang;
+ - IHinhThucKhuyenMai hinhThucKhuyenMai;
+ + void themMonAn()
+ + void setPhuongThucGiaoHang(IPhuongThucGiaoHang stratery)
+ + void setHinhThucKhuyenMai(IHinhThucKhuyenMai stratery))
+ + double tinhTongTien()
+ + void thanhToan();
+}
+
+MonAn  <--  GioHang
+IPhuongThucGiaoHang <|-- GiaoHangNhanh
+IPhuongThucGiaoHang <|-- GiaoHangTietKiem
+IPhuongThucGiaoHang <|-- TuLayTaiQuan
+IHinhThucKhuyenMai <|-- GiamXTrenSoTongTien
+IHinhThucKhuyenMai <|-- GiamToiDaYTongTien
+GioHang --> IPhuongThucGiaoHang
+GioHang --> IHinhThucKhuyenMai
+
+@enduml

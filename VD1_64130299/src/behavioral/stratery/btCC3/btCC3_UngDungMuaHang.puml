@@ -5,6 +5,7 @@ class MatHang {
     - int soLuong;
     - double donGia;
     + String toString()
+    + double tinhTien();
 }
 
 class GioHang {
