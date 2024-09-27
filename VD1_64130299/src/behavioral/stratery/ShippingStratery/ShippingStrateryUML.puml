@@ -1,0 +1,22 @@
+@startuml
+interface ShippingStrategy {
+    + calculateShippingCost(weight: double, destination: String): double
+}
+
+class ExpressShippingStrategy
+class StandardShippingStrategy
+class InternationalShippingStrategy
+
+ShippingStrategy <|-- ExpressShippingStrategy
+ShippingStrategy <|-- StandardShippingStrategy
+ShippingStrategy <|-- InternationalShippingStrategy
+
+class ShippingContext {
+    -strategy: ShippingStrategy
+    +ShippingContext(strategy: ShippingStrategy)
+    +setStrategy(strategy: ShippingStrategy): void
+    +calculateCost(weight: double, destination: String): double
+}
+
+ShippingContext --> ShippingStrategy
+@enduml

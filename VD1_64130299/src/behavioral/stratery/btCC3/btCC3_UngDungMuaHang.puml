@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/class-diagram
+class MatHang {
+    - String ten;
+    - int soLuong;
+    - double donGia;
+    + String toString()
+}
+
+class GioHang {
+    - List<MatHang> danhSachMatHang;
+    - ThanhToanStratery thanhToanStratery;
+    - KhuyenMaiStratery khuyenMaiStratery;
+    + void themMatHang (String ten, int soLuong, double donGia)
+    + void setThanhToanStratery(ThanhToanStratery stratery)
+    + void setKhuyenMaiStratery(KhuyenMaiStratery stratery)
+    + double tinhTongTien()
+    + void thanhToan()
+}
+
+interface  ThanhToanStratery{
+    double thanhToan(double tongTien)
+}
+
+class CODStratery {
+    + double thanhToan(double tongTien)
+}
+
+class AirpayStratery {
+    + double thanhToan(double tongTien)
+}
+
+class MastercardStratery {
+    + double thanhToan(double tongTien)
+}
+
+interface KhuyenMaiStratery {
+    double tinhTienKhuyenMai(double tongTien)
+}
+
+class GiamXPhamTramStratery {
+    + double tinhTienKhuyenMai(double tongTien)
+}
+
+class GiamToiDaYStratery {
+    + double tinhTienKhuyenMai(double tongTien)
+}
+
+MatHang --> GioHang
+ThanhToanStratery <|-- CODStratery
+ThanhToanStratery <|-- AirpayStratery
+ThanhToanStratery <|-- MastercardStratery
+GioHang --> ThanhToanStratery
+KhuyenMaiStratery <|-- GiamXPhamTramStratery
+KhuyenMaiStratery <|-- GiamToiDaYStratery
+GioHang --> KhuyenMaiStratery
+@enduml
