@@ -36,7 +36,7 @@ class GioHang {
  - List<MonAn> danhSachMonAn;
  - IPhuongThucGiaoHang phuongThucGiaoHang;
  - IHinhThucKhuyenMai hinhThucKhuyenMai;
- + void themMonAn()
+ + void themMonAn(String tenMonAn, soLuong, donGia)
  + void setPhuongThucGiaoHang(IPhuongThucGiaoHang stratery)
  + void setHinhThucKhuyenMai(IHinhThucKhuyenMai stratery))
  + double tinhTongTien()
