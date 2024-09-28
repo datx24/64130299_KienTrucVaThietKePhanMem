@@ -16,4 +16,6 @@ public class MySingleton {
     public void countPrint() {
         System.out.println(++count);
     }
+
+
 }

@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+    class Election {
+        - int trumpVotes;
+        - int bidenVotes;
+        - Set<String> voters;
+        - static Election instance
+        - Election()
+        + static Election getInstance()
+        + String vote(String candidate, User user)
+        + void showResults()
+    }
+
+    class User {
+        - String name;
+        + User (String name)
+        + String getName()
+        + void vote(String candidate)
+    }
+
+    Election --> User : vote
+
+@enduml
