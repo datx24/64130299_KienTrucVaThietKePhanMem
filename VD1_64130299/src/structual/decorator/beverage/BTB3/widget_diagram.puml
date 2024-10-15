@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface IWidget {
+    String build();
+}
+
+class TextWidget implements IWidget {
+    - String content;
+    + TextWidget(String content);
+    + String build();
+}
+
+class ButtonWidget implements IWidget {
+    - String label;
+    + ButtonWidget(String label);
+    + String build();
+}
+
+abstract class LayoutWidgetDecorator implements IWidget {
+    - IWidget component;
+    + LayoutWidgetDecorator (IWidget component);
+}
+
+class ContainerDecorator extends LayoutWidgetDecorator {
+    - String padding;
+    + ContainerDecorator(IWidget component,String padding);
+    + String build();
+}
+
+class RowDecorator extends LayoutWidgetDecorator {
+    + RowDecorator(IWidget component);
+    + String build;
+}
+
+class CenterDecorator extends LayoutWidgetDecorator {
+    + CenterDecorator(IWidget component));
+    + String build;
+}
+
+@enduml
