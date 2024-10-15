@@ -1,4 +1,4 @@
-package creational.singleton.vidu.BTA4;
+package creational.singleton.BTA4;
 
 public class User {
     private String name;

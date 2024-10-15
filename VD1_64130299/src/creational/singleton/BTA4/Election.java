@@ -1,4 +1,4 @@
-package creational.singleton.vidu.BTA4;
+package creational.singleton.BTA4;
 
 import java.util.HashSet;
 import java.util.Set;

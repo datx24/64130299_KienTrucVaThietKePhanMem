@@ -19,6 +19,6 @@
         + void vote(String candidate)
     }
 
-    Election --> User : vote
+    Election <-- User : vote
 
 @enduml
