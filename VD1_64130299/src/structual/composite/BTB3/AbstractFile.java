@@ -6,7 +6,7 @@ public abstract class AbstractFile {
     public AbstractFile(String name, String createdDate) {
         this.name = name;
         this.createdDate = createdDate;
-        path = name;
+        this.path = name;
     }
 
     public abstract void add(AbstractFile file);

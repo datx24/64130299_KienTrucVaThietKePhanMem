@@ -4,7 +4,7 @@ public class File extends AbstractFile{
 
     public File(String name, String createdDate) {
         super(name, createdDate);
-        path = name;
+        this.path = name;
     }
 
     @Override

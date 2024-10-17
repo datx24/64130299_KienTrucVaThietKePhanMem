@@ -9,7 +9,7 @@ public class Folder extends AbstractFile{
     public Folder(String name, String createdDate) {
         super(name, createdDate);
         files = new ArrayList<>();
-        path = name;
+        this.path = name;
     }
 
 
