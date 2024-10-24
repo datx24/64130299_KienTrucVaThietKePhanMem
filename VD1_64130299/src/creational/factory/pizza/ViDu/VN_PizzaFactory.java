@@ -1,6 +1,6 @@
-package creational.factory.pizza;
+package creational.factory.pizza.ViDu;
 
-public class OppaPizza extends PizzaStore{
+public class VN_PizzaFactory extends PizzaStore{
     @Override
     protected Pizza createPizza(PizzaType type) {
         switch (type){

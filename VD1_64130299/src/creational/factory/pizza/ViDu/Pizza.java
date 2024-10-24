@@ -1,4 +1,4 @@
-package creational.factory.pizza;
+package creational.factory.pizza.ViDu;
 
 public abstract class Pizza {
     protected StringBuilder pizza = new StringBuilder();

@@ -1,4 +1,4 @@
-package creational.factory.pizza;
+package creational.factory.pizza.ViDu;
 
 public class PizzaTest {
     public static void main(String[] args) {
