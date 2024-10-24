@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/class-diagram
+enum VehicleType
+abstract class Transportation{
+    # StringBuider transportation;
+    # int capacicy;
+    # {abstract} void drive()
+    + String toString()
+}
+
+class Car{
+    + Car(int capacity)
+    + void drive()
+}
+
+class  Bus{
+    + Bus(int capacicy)
+    + void drive()
+}
+
+abstract class TransportationFactory{
+    # {abstract} Transportation createTransportation(VehicleType type));
+    + Transportation bookTransportation(VehicleType type)
+}
+
+class VN_TransportationFactory{
+}
+class US_TransportationFactory{
+}
+
+Transportation <|-- Car
+Transportation <|-- Bus
+TransportationFactory ..> Transportation
+TransportationFactory <|-- VN_TransportationFactory
+TransportationFactory <|-- US_TransportationFactory
+@enduml
