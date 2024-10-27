@@ -1,50 +1,49 @@
 package creational.singleton.vote;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Election {
-    private static Election instance;
-    private int trump = 0, biden = 0;
-    private List<String> users = new ArrayList<>(); // Initialize list in the constructor
+    private static volatile Election instance;
+    private int trumpVotes = 0;
+    private int bidenVotes = 0;
+    private Set<String> users = new HashSet<>(); // Sử dụng Set để tránh trùng lặp và tăng hiệu suất
 
-    private Election() {// Initialize the list
-    }
+    // Constructor riêng tư để ngăn tạo thể hiện từ bên ngoài
+    private Election() {}
 
+    // Singleton với Double-Checked Locking để đảm bảo thread-safe
     public static Election getInstance() {
         if (instance == null) {
-            instance = new Election();
+            synchronized (Election.class) {
+                if (instance == null) {
+                    instance = new Election();
+                }
+            }
         }
         return instance;
     }
 
+    // Phương thức bỏ phiếu
     public void vote(Candidate candidate, User user) {
-        // Check if the user has already voted
-        if (users.contains(user.getName())) {
-            System.out.println(user.getName() + " has already voted!"); // Space between name and message
+        // Kiểm tra nếu người dùng đã bỏ phiếu
+        if (!users.add(user.getName())) {
+            System.out.println(user.getName() + " has already voted!");
             return;
         }
 
-        // Increment vote count based on the candidate
+        // Tăng phiếu dựa vào ứng viên
         switch (candidate) {
-            case TRUMP:
-                trump++;
-                break;
-            case BIDEN:
-                biden++;
-                break;
-            default:
-                System.out.println("Invalid candidate");
-                return;
+            case TRUMP -> trumpVotes++;
+            case BIDEN -> bidenVotes++;
+            default -> System.out.println("Invalid candidate");
         }
-
-        // Add user to the list of people who have voted
-        users.add(user.getName());
-        System.out.println(user.getName() + " has voted !");
+        System.out.println(user.getName() + " has voted!");
     }
 
+    // Phương thức hiển thị kết quả
     public void showResults() {
-        System.out.println("Trump votes: " + trump);
-        System.out.println("Biden votes: " + biden);
+        System.out.println("Trump votes: " + trumpVotes);
+        System.out.println("Biden votes: " + bidenVotes);
     }
 }
