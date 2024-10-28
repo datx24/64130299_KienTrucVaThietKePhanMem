@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+@startuml
+interface IPrototype{
+    + Object copy();
+    + Object clone();
+}
+
+class SanPham {
+    - String tenSanPham;
+    - int soLuong;
+    - double donGia;
+    + Object copy();
+    + Object clone();
+}
+
+class HoaDon {
+    - String tenKhachHang,soDienThoai;
+    - Date ngayBan;
+    - List<SanPham> danhSachSanPham;
+    + Object copy();
+    + Object clone();
+}
+
+class PrototypeHelper {
+    + T static <T> copy<T>
+}
+
+IPrototype <|.. SanPham
+IPrototype <|.. HoaDon
+SanPham --> PrototypeHelper : Sử dụng
+HoaDon --> PrototypeHelper: Sử dụng
+
+
+
+
+
+@enduml

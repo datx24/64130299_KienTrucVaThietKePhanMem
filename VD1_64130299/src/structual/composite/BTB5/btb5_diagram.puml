@@ -1,0 +1,49 @@
+@startuml
+interface Component {
+    +build() : void
+}
+
+Component <|-- Layout
+Component <|-- SpecificComponent
+
+abstract class Layout {
+    - components: List<Component>
+    + add(component: Component) : void
+    + remove(component: Component) : void
+    + build() : void
+}
+
+class Column extends Layout {
+    + build() : void
+}
+
+class Row extends Layout {
+    + build() : void
+}
+
+class Stack extends Layout {
+    + build() : void
+}
+
+class SpecificComponent {
+    + build() : void
+}
+
+SpecificComponent <|-- Text
+SpecificComponent <|-- Button
+SpecificComponent <|-- Icon
+
+interface UIFactory {
+    + createText() : Text
+    + createButton() : Button
+    + createIcon() : Icon
+}
+
+class ClassicUIFactory implements UIFactory
+class ModernUIFactory implements UIFactory
+class MaterialUIFactory implements UIFactory
+
+UIFactory <|.. ClassicUIFactory
+UIFactory <|.. ModernUIFactory
+UIFactory <|.. MaterialUIFactory
+@enduml

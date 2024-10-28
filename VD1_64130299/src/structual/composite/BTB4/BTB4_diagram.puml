@@ -1,0 +1,55 @@
+@startuml
+
+abstract MonHoc {
+    +getTenMon(): String
+    +getTinChi(): int
+    +getHocPhi(): double
+}
+
+class MonHocCuaSV {
+    -tenMon: String
+    -tinChi: int
+    -hocPhi: double
+    +getTenMon(): String
+    +getTinChi(): int
+    +getHocPhi(): double
+}
+
+class KyHoc {
+    -tenKy: String
+    -danhSachMon: List<MonHoc>
+    +themMon(mon: MonHoc)
+    +xoaMon(mon: MonHoc)
+    +getTenKy(): String
+    +getTongTinChi(): int
+    +getTongHocPhi(): double
+}
+
+class NamHoc {
+    -tenNam: String
+    -danhSachKy: List<KyHoc>
+    +themKy(ky: KyHoc)
+    +xoaKy(ky: KyHoc)
+    +getTenNam(): String
+    +getTongTinChi(): int
+    +getTongHocPhi(): double
+}
+
+class Khoahoc {
+    -tenKhoa: String
+    -danhSachNam: List<NamHoc>
+    +themNam(nam: NamHoc)
+    +xoaNam(nam: NamHoc)
+    +getTongTinChi(): int
+    +getTongHocPhi(): double
+}
+
+MonHoc <|-- MonHocCuaSV
+MonHoc <|-- KyHoc
+MonHoc <|-- NamHoc
+Khoahoc --* NamHoc
+NamHoc --* KyHoc
+KyHoc --* MonHocCuaSV
+
+
+@enduml

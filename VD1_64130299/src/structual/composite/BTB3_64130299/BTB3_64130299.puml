@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract AbstractFile {
+    + {abstract} String getStringTreeFolder(String prefix)
+    + {abstract} String getPath(String currentPath)
+    + {abstract} void addItem(AbstractFile item)
+    + {abstract} void removeItem(AbstractFile item)
+}
+
+class File {
+    # String tenFile, ngayTao;
+    + File(...)
+    + String getStringTreeFolder(String prefix)
+    + String getPath(String currentPath)
+    + String toString()
+}
+
+class Folder {
+    # String tenThuMuc, ngayTao;
+    # List<AbstractFile> danhSachItems;
+    + Folder (String tenThuMuc,String ngayTao)
+    + String getStringTreeFolder(String prefix)
+    + String getPath(String currentPath)
+    + void addItem(AbstractFile item)
+    + void removeItem(AbstractFile item)
+    + String toString()
+}
+
+AbstractFile <|-- File
+AbstractFile <|-- Folder
+
+@enduml

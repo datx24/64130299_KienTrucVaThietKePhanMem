@@ -1,5 +1,7 @@
 package creational.prototype.BTA8;
 
+import creational.prototype.BTA8_gk.HoaDon_64130299;
+
 import java.io.*;
 
 public class PrototypeHelper{

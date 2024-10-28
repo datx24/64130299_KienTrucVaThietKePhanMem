@@ -1,0 +1,30 @@
+@startuml
+
+abstract class BieuThuc {
+    +getPath(parentPath: String): String
+    +getStringTreeFolder(prefix: String): String
+}
+
+class File {
+    -tenFile: String
+    -ngayTao: LocalDate
+    +File(tenFile: String, ngayTao: LocalDate)
+    +getPath(parentPath: String): String
+    +getStringTreeFolder(prefix: String): String
+}
+
+class Directory {
+    -tenThuMuc: String
+    -ngayTao: LocalDate
+    -danhSachItems: List<BieuThuc>
+    +Directory(tenThuMuc: String, ngayTao: LocalDate)
+    +addItem(item: BieuThuc): void
+    +getPath(parentPath: String): String
+    +getStringTreeFolder(prefix: String): String
+}
+
+BieuThuc <|-- File
+BieuThuc <|-- Directory
+
+@enduml
+
