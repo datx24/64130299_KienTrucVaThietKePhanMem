@@ -1,0 +1,52 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Stream<T> {
+    - List<Listener<T>> listeners;
+    - List<T> events;
+    + addEvents(T t);
+    + addListener(Listener<T> listener)
+}
+
+interface Listener<T> {
+    + update (T event);
+}
+
+class Client implements Listener<MonHoc> {
+    + update (MonHoc event);
+    + void hienThiDanhSach();
+}
+
+class MonHoc {
+    - String ten,maMH;
+}
+
+class DataAccess {
+    - static DataAcess instance;
+    - Stream<MonHoc> stream;
+    + static DataAcess getInstance();
+    + themMonHoc(MonHoc mh);
+    + capNhatMonHoc(MonHoc mh);
+    + xoaMonHoc(MonHoc mh);
+}
+
+Stream -> Listener : notifies
+Client -up-> Stream: implements
+DataAccess --> Stream : manages
+DataAccess -> DataAccess: Singelton access
+Client --> DataAccess : interacts
+note top of Stream
+"Subject"
+Stream là đối tượng trung tâm
+quản lý dữ liệu và thông báo các
+Observer khi dữ liệu thay đổi.
+end note
+
+note top of Listener
+"Observer"
+Listener là các thành phần
+lắng nghe sự kiện từ Subject
+và cập nhật trạng thái dựa
+trên thay đổi từ Subject.
+end note
+@enduml
