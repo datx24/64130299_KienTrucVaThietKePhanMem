@@ -5,6 +5,6 @@ public class Column extends Layout{
     @Override
     public void build() {
         StringBuilder sb = new StringBuilder();
-        
+
     }
 }

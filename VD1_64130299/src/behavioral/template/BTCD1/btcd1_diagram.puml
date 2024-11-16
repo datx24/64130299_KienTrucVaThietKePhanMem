@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class HoaDon {
+    - List<MatHang> dsHangHoa;
+    + double tinhTien();
+    + {abstract} tinhChietKhau();
+    + void hienThiGioHang();
+    # void templateMethod()'
+}
+
+class KhanhHangThanThiet extends HoaDon {
+    + double tinhChietKhau();
+}
+
+class KhachHangVang extends HoaDon {
+    + double tinhChietKhau();
+}
+
+class KhachHangKimCuong extends HoaDon {
+    + double tinhChietKhau();
+}
+
+class MatHang {
+    - String ten;
+    - int soLuong;
+    - double donGia;
+    + double tinhThanhTien();
+}
+
+HoaDon "1" o-- "*" MatHang
+@enduml
