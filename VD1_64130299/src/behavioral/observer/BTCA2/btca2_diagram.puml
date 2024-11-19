@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Button {
+    - List<Observer> observers;
+    + addObserver(Observer observer)
+    + click()
+    - notifyObserver()
+}
+
+interface Observer{
+    + void update();
+}
+
+class Activity{
+    - int clickCount;
+    + update()
+}
+
+Observer <|.. Activity
+Button --> Observer : notifies
+Button o-- Activity
+note top of Button
+"Subject" quản lý dữ liệu và thông
+báo cho Activity khi có sự thay đổi.
+end note
+
+note right of Activity
+"Observer" lắng nghe sự kiện từ "Subject"
+và cập nhật trạng thái từ "Subject"
+end note
+@enduml
