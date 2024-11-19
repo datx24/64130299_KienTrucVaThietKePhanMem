@@ -9,17 +9,16 @@ class Button {
 }
 
 interface Observer{
-    + void update();
+    + void onClick();
 }
 
 class Activity{
     - int clickCount;
-    + update()
+    + onClick()
 }
 
 Observer <|.. Activity
 Button --> Observer : notifies
-Button o-- Activity
 note top of Button
 "Subject" quản lý dữ liệu và thông
 báo cho Activity khi có sự thay đổi.

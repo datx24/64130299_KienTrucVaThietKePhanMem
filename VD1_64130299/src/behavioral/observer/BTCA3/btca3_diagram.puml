@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+class TiGia {
+    - List<Listener> listeners;
+    - float rate;
+    + addListener(Listener listener)
+    + removeListener(Listener listener)
+    + setRate(float newRate)
+    - notifyListener()
+}
+
+interface Listener {
+    + void update(float exchageRate)
+}
+
+class NhaDauTu {
+    - String name;
+    + NhaDauTu (String name)
+    + void update(float exchageRate)
+    + decideAction(float exchageRate)
+}
+
+NhaDauTu ..|> Listener
+TiGia o-- NhaDauTu
+TiGia --> Listener : notifies
+
+@enduml

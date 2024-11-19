@@ -16,7 +16,7 @@ public class Button {
 
     private void notifyListener () {
         for (Listener listener: listeners) {
-            listener.update();
+            listener.onClick();
         }
     }
 }
