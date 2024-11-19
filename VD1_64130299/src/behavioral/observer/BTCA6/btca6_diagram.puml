@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class PlayerData {
+    - List<PlayerDataListener> listeners;
+    - String thoiGian;
+    - int countdown;
+    - double grade;
+    + addCharacter(PlayerDataListener listeners)
+    + setThoiGian(String thoiGian)
+    + setCountdown(int countdown)
+    + setGrade(double grade)
+    - notifyPlayerDataListener()
+}
+
+interface PlayerDataListener{
+    + void update(String thoiGian,int countdown,double grade)
+}
+
+class Dashboard {
+    + void update(String thoiGian,int countdown,double grade)
+    + display()
+}
+
+
+PlayerDataListener --> Dashboard
+PlayerData ..|> PlayerDataListener : notifies
+
+@enduml

@@ -21,7 +21,6 @@ class NhaDauTu {
 }
 
 NhaDauTu ..|> Listener
-TiGia o-- NhaDauTu
 TiGia --> Listener : notifies
 
 @enduml
