@@ -9,7 +9,7 @@ public class ChuTich extends NhanVienF88{
     @Override
     public void duyetKhoanVay(int soTienVay) {
         if(soTienVay <= getHanMucDuyetVay()) {
-            System.out.println("Chủ tịch duyệt mức vay số tiền vay " + soTienVay + " !");
+            System.out.println("Chủ tịch " + getTen() + " chức vụ" + getChucVu() + " duyệt mức vay số tiền vay " + soTienVay + " !");
         }
         else {
             System.out.println("Ra Eximbank vay.");
