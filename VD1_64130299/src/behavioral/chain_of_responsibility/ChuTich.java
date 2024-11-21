@@ -8,7 +8,7 @@ public class ChuTich extends NhanVienF88{
 
     @Override
     public void duyetKhoanVay(int soTienVay) {
-        if(soTienVay <= 1000000) {
+        if(soTienVay <= getHanMucDuyetVay()) {
             System.out.println("Chủ tịch duyệt mức vay số tiền vay " + soTienVay + " !");
         }
         else {
