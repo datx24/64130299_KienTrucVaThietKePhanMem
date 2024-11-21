@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class NhanVienF88 {
+    String ten,chucVu
+    int hanMucDuyetVay
+    + abstract void duyetKhoanVay(int soTienVay)
+}
+
+class ChuTich {
+}
+
+class NhanVien {
+}
+
+ChuTich --|> NhanVienF88
+NhanVien --|> NhanVienF88
+NhanVien --> NhanVienF88 : cap tren
+
+note top of ChuTich
+Phương thức duyệt khoản vay
+    Nếu số tiền vay lớn hơn hạn mức vay
+        in: Chức vụ nhân viên
+end note
+@enduml
