@@ -7,12 +7,9 @@ public class MainCB1 {
                         .menhGiaKeTiep(new MenhGia(50)
                                 .menhGiaKeTiep(new MenhGia(10)
                                         .menhGiaKeTiep(new MenhGiaThapNhat(1)))));
-        int soTien = 293;
-        System.out.println("Rút số tiền: " + soTien);
-        atm.rutTien(soTien);
+        System.out.println("Rút số tiền 293: ");
+        atm.rutTien(293);
         ChuoiMenhGiaFactory chuoiVND = new ChuoiMenhGiaVND();
-        int menhGiaCaoNhat = 20;
-        System.out.println("Rút số tiền với mệnh giá cao nhất 20: " + soTien);
-        chuoiVND.rutTien(soTien,menhGiaCaoNhat);
+        chuoiVND.rutTien(299, 50);
     }
 }
