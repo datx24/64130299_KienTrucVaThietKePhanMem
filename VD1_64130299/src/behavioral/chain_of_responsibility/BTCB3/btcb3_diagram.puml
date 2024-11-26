@@ -5,7 +5,7 @@ abstract class BacDien{
     - double gia,min,max;
     - BacDien bacKeTiep;
     + BacDien (double gia,double min, double max)
-    + BacDien bacKeTiep(BacDien bac)
+    + {abstract} BacDien bacKeTiep(BacDien bac)
     + {abstract} void tinhTien(int sokWh, double[] tongTien)
 }
 class BacDienThuong{}
