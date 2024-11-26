@@ -1,4 +1,4 @@
-package behavioral.chain_of_responsibility;
+package behavioral.chain_of_responsibility.btvidu;
 
 public class ChuTich extends NhanVienF88{
 
