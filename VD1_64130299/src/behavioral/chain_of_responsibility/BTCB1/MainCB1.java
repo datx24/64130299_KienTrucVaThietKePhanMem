@@ -8,7 +8,7 @@ public class MainCB1 {
                                 .menhGiaKeTiep(new MenhGia(10)
                                         .menhGiaKeTiep(new MenhGiaThapNhat(1)))));
         System.out.println("Rút số tiền 293: ");
-        atm.rutTien(293);
+        atm.rutTien(299);
         ChuoiMenhGiaFactory chuoiVND = new ChuoiMenhGiaVND();
         chuoiVND.rutTien(299, 50);
     }
