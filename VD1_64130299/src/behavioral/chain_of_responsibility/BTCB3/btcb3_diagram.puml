@@ -6,7 +6,7 @@ abstract class BacDien{
     - BacDien bacKeTiep;
     + BacDien (double gia,double min, double max)
     + {abstract} BacDien bacKeTiep(BacDien bac)
-    + {abstract} void tinhTien(int sokWh, double[] tongTien)
+    + {abstract} double tinhTien(int sokWh, double[] tongTien)
 }
 class BacDienThuong{}
 class BacDienCaoNhat{}
