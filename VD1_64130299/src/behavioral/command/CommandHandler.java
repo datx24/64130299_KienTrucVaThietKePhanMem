@@ -3,6 +3,14 @@ package behavioral.command;
 public class CommandHandler {
     float result = 0;
 
+    public float getResult() {
+        return result;
+    }
+
+    public void setResult(float result) {
+        this.result = result;
+    }
+
     public void handle(char operator, float operand) {
         float first_operand = result;
         switch (operator) {
