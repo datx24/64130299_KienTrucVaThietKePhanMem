@@ -1,14 +1,14 @@
 package behavioral.state.btcf1;
 
 public class RemoteControl {
-    private IRemoteState currentControl;
+    private IRemoteState currentState;
     public RemoteControl() {
-        currentControl = new OffState();
+        currentState = new OffState();
     }
     public void setState(IRemoteState state) {
-        this.currentControl = state;
+        this.currentState = state;
     }
     public void powerPress() {
-        currentControl.handle(this);
+        currentState.handle(this);
     }
 }
