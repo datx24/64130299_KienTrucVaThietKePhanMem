@@ -1,4 +1,4 @@
-package behavioral.state.btcf1;
+package behavioral.state.BTCF1;
 
 public class OnState implements IRemoteState{
     @Override
