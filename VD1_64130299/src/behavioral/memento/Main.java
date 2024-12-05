@@ -5,15 +5,15 @@ public class Main {
         WordApp app = new WordApp();
 
         app.createDocument();
-        app.appendDocument("Hello, ");
-        app.appendDocument("world!");
-        System.out.println("Content after writing: " + app.getDocumentContent());
+        app.appendDocument("Xin chào, ");
+        app.appendDocument("các bạn!");
+        System.out.println("Wordapp sau khi ghi: " + app.getDocumentContent());
 
         app.undo();
-        System.out.println("Content after undo: " + app.getDocumentContent());
+        System.out.println("Wordapp sau khi undo: " + app.getDocumentContent());
 
         app.redo();
-        System.out.println("Content after redo: " + app.getDocumentContent());
+        System.out.println("Wordapp sau khi redo: " + app.getDocumentContent());
     }
 }
 
