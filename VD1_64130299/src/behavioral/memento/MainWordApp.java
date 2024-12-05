@@ -1,6 +1,6 @@
 package behavioral.memento;
 
-public class Main {
+public class MainWordApp {
     public static void main(String[] args) {
         WordApp app = new WordApp();
 
