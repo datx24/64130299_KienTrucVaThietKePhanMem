@@ -21,20 +21,16 @@ public class WordApp {
     }
 
     public void undo() {
-        DocumentMemento memento = history.getBackward();
-        if(memento != null) {
-            doc.restoreDocFromMemento(memento);
-        } else {
-            System.out.println("Không có dữ liệu để undo.");
+        DocumentMemento memento = history.getBackward(); // Lấy trạng thái trước đó
+        if (memento != null) {
+            doc.restoreDocFromMemento(memento); // Khôi phục tài liệu
         }
     }
 
     public void redo() {
-        DocumentMemento memento = history.getForward();
-        if(memento != null) {
-            doc.restoreDocFromMemento(memento);
-        } else {
-            System.out.println("Không có dữ liệu đẻ redo.");
+        DocumentMemento memento = history.getForward(); // Lấy trạng thái redo
+        if (memento != null) {
+            doc.restoreDocFromMemento(memento); // Khôi phục tài liệu
         }
     }
 

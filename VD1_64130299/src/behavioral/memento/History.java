@@ -13,18 +13,17 @@ public class History {
     }
 
     public DocumentMemento getBackward() {
-        if(!undos.isEmpty()){
-            var memento = undos.pop();
-            redos.push(memento);
-            return memento;
+        if (!undos.isEmpty()) {
+            redos.push(undos.peek()); // Lưu trạng thái hiện tại vào redo
+            return undos.pop();      // Lấy trạng thái trước đó
         }
-            return null;
+        return null;
     }
 
     public DocumentMemento getForward() {
-        if(!redos.isEmpty()) {
-            var memento = redos.pop();
-            undos.push(memento);
+        if (!redos.isEmpty()) {
+            var memento = redos.pop(); // Lấy trạng thái redo
+            undos.push(memento);// Lưu trạng thái hiện tại vào undo
             return memento;
         }
         return null;
