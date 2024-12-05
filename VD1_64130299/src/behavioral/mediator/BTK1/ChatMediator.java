@@ -29,7 +29,7 @@ public class ChatMediator implements IChatMediator {
     @Override
     public void sendBroadCast(String message, ChatUser from) {
         for(ChatUser user: userMaps.values()) {
-            if(!user.equals(from)) {
+            if(user.getId() != from.getId()) {
                 user.receive(message, from);
             }
         }
