@@ -1,0 +1,44 @@
+@startuml
+' https://plantuml.com/class-diagram
+
+interface IChatMediator {
+    + register(ChatUser user)
+    + unregister(ChatUser user)
+    + sendMessage(String message, ChatUser from, String told)
+    + sendBroadcast(String message, ChatUser from)
+}
+
+abstract class ChatUser {
+    - String id
+    - String name
+    + void register()
+    + void unregister()
+    + void sendMessage(String message, String told)
+    + void sendBroadcast(String message)
+    + void receive(String message, ChatUser from)
+}
+
+class ChatMediator implements IChatMediator {
+    - HashMap<String, ChatUser> userMaps
+    + void register(ChatUser user)
+    + void unregister(ChatUser user)
+    + void sendMessage(String message, ChatUser from, String told)
+    + void sendBroadcast(String message, ChatUser from)
+}
+
+class ChatSimpleUser extends ChatUser {
+}
+
+' Define relationships for a clearer layout
+ChatUser --> IChatMediator : mediators
+ChatMediator --> ChatUser : users
+ChatSimpleUser --|> ChatUser
+ChatMediator ..> IChatMediator
+
+' Specify the layout to improve visual arrangement
+left to right direction
+IChatMediator -[hidden]-> ChatMediator
+ChatUser -[hidden]-> ChatMediator
+ChatUser -[hidden]-> ChatSimpleUser
+
+@enduml
