@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Observer {
+    - void kiemTraSoDu(float soTienRut);
+    - void nhanThongBao(String thongBao);
+}
+
+interface Subject {
+    + void dangKiTaiKhoan(Observer observer);
+    + void huyDangKiTaiKhoan(Observer observer);
+    + void rutTien(float soTienRut));
+}
+
+class ATM {
+}
+
+class TaiKhoan {
+    - String ten;
+    - float soDu;
+    + TaiKhoan(String ten,float soDu)
+}
+
+Observer <|.. TaiKhoan
+Subject <|.. ATM
+
+ATM --> Observer: thông báo
+@enduml

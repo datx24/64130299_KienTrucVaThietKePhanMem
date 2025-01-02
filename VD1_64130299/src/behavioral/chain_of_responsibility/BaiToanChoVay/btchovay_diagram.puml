@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/class-diagram
+abstract class NhanVienAlibaba {
+    String ten,chucVu;
+    int hanMucDuyetVay;
+    {abstract} void duyetKhoanVay(int sotienVay)
+    {abstract} NhanVienAlibaba capTren(NhanVienAlibaba nv)
+}
+
+class NhanVien {
+}
+
+class CapTren {
+}
+
+NhanVien --|> NhanVienAlibaba
+NhanVien --> NhanVienAlibaba: cấp trên
+CapTren --|> NhanVienAlibaba
+
+@enduml

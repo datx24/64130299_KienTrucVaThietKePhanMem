@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class TVContext {
+    - State currentState
+    + TVContext()
+    + void setState()
+    + void pressPowerButton()
+}
+
+interface State {
+    + void pressPowerButton(TVContext context)
+}
+
+class OnState{
+
+}
+
+class OffState{
+
+}
+
+TVContext --> State: currentState
+State <|.. OffState
+State <|.. OnState
+@enduml

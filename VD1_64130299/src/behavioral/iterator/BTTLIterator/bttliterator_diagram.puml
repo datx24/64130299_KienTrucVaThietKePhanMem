@@ -1,0 +1,25 @@
+@startuml
+title Iterator Pattern - Bài tập CE3
+
+class MonHoc {
+    - maMonHoc: String
+    - tenMonHoc: String
+    + MonHoc(maMonHoc: String, tenMonHoc: String)
+    + getMaMonHoc(): String
+    + getTenMonHoc(): String
+    + toString(): String
+}
+
+class MonHocPrinter {
+    + printMonHoc(iterator: Iterator<MonHoc>): void
+}
+
+class Main {
+    + main(args: String[]): void
+}
+
+MonHocPrinter --> Iterator
+Main --> MonHocPrinter
+Main --> MonHoc
+
+@enduml

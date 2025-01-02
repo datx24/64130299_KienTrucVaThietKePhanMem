@@ -17,7 +17,7 @@ public class ChatSimpleUser extends ChatUser{
 
     @Override
     public void sendMessage(String message, String told) {
-        System.out.println(name + " gửi tin nhắn tới " + told + ": " + message);
+        System.out.println(name + " gửi tin nhắn tới " + name + ": " + message);
         mediator.sendMessage(message,this,told);
     }
 

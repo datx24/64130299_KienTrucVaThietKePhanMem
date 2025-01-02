@@ -14,9 +14,7 @@ public class NhanVien extends NhanVienF88{
         else {
             capTren.duyetKhoanVay(soTienVay);
         }
-
     }
-
 
     @Override
     public NhanVienF88 capTren(NhanVienF88 nv) {

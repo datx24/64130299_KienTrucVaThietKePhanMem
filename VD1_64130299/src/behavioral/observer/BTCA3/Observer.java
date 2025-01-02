@@ -1,6 +1,5 @@
 package behavioral.observer.BTCA3;
 
-
-public interface Listener {
+public interface Observer {
     void update(float exchangeRate);
 }

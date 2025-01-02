@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Observer{
+    + void update(String weatherUpdate)
+}
+
+abstract class Subject{
+    - List<Observer> observers;
+    + addObserver(Observer: observer)
+    + removeObserver(Observer: observer)
+    + notifyObserver(String weatherUpdate)
+}
+
+class WeatherStation{
+    - String weatherCondition;
+    + setWeatherCondition(String weatherCondition))
+}
+
+class WeatherApp{
+    - String appName;
+    + update(String weatherUpdate))
+}
+
+Subject <|-- WeatherStation
+Observer <|.. WeatherApp
+Subject --> Observer: thông báo
+@enduml

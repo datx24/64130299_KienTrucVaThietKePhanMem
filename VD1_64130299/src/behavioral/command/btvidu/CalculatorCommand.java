@@ -1,4 +1,4 @@
-package behavioral.command;
+package behavioral.command.btvidu;
 
 public class CalculatorCommand implements ICommand{
     private char operator;

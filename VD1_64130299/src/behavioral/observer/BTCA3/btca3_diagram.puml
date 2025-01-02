@@ -1,26 +1,28 @@
 @startuml
 'https://plantuml.com/class-diagram
-class TiGia {
-    - List<Listener> listeners;
-    - float rate;
-    + addListener(Listener listener)
-    + removeListener(Listener listener)
-    + setRate(float newRate)
-    - notifyListener()
+
+interface Observer{
+    + void update(float exchangeRate);
 }
 
-interface Listener {
-    + void update(float exchageRate)
+interface Subject{
+    + void addObserver(Observer observer)
+    + void removeObserver(Observer observer)
+    + void notifyObserver();
+}
+
+class TiGia {
+    - List<Observer> observers;
+    - float exchangeRate;
+    + setExchangeRate(float exchangeRate)
 }
 
 class NhaDauTu {
-    - String name;
-    + NhaDauTu (String name)
-    + void update(float exchageRate)
-    + decideAction(float exchageRate)
+    - String name
+    + NhaDauTu(String name)
 }
 
-NhaDauTu ..|> Listener
-TiGia --> Listener : notifies
-
+Observer <|.. NhaDauTu
+Subject <|.. TiGia
+TiGia --> Observer : Thông báo
 @enduml

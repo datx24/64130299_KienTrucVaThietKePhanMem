@@ -1,6 +1,6 @@
 package behavioral.observer.BTCA3;
 
-public class NhaDauTu implements Listener{
+public class NhaDauTu implements Observer{
     private String name;
 
     public NhaDauTu(String name) {
@@ -9,19 +9,14 @@ public class NhaDauTu implements Listener{
 
     @Override
     public void update(float exchangeRate) {
-        System.out.println("Nhà đầu tư " + name + " nhận được tỉ giá " + exchangeRate);
-        decideAction(exchangeRate);
-    }
-
-    private void decideAction(float exchangeRate) {
-        if (exchangeRate > 23.5) {
-            System.out.println(name + " quyết định bán USD.");
+        if (exchangeRate < 20.5) {
+            System.out.println("Nhà đầu tư " + name + " quyết định bán !");
         }
-        else if(exchangeRate < 23) {
-            System.out.println(name + " quyết định mua USD.");
+        else if (exchangeRate > 30.5) {
+            System.out.println("Nhà đầu tư " + name + " quyết định mua !");
         }
         else {
-            System.out.println(name + " quyết định giữ USD.");
+            System.out.println("Nhà đầu tư " + name + " quyết định giữ !");
         }
     }
 }

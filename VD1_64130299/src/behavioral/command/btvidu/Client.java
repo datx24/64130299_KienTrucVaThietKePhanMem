@@ -1,4 +1,4 @@
-package behavioral.command;
+package behavioral.command.btvidu;
 
 public class Client {
     public static void main(String[] args) {

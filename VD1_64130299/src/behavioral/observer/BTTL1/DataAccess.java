@@ -1,10 +1,10 @@
-package behavioral.observer.BTCA1;
+package behavioral.observer.BTTL1;
 
 public class DataAccess {
     private static DataAccess instance;
     private Stream<MonHoc> stream = new Stream<>();
 
-    private DataAccess() {}
+    private DataAccess() {};
 
     public static DataAccess getInstance() {
         if (instance == null) {
@@ -18,6 +18,6 @@ public class DataAccess {
     }
 
     public void themMonHoc(MonHoc mh) {
-        stream.addEvents(mh);
+        stream.addEvent(mh);
     }
 }

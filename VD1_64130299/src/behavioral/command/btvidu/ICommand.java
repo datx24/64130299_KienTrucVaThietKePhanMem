@@ -1,4 +1,4 @@
-package behavioral.command;
+package behavioral.command.btvidu;
 
 public interface ICommand {
     void excute();

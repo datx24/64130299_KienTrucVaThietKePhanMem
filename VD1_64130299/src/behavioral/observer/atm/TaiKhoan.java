@@ -1,43 +1,27 @@
 package behavioral.observer.atm;
 
-public class TaiKhoan implements TaiKhoanATM{
-    int soDu;
-    String tenTK;
-    ATM atm;
+public class TaiKhoan implements Observer{
+    private String name;
+    private float soDu;
 
-    public TaiKhoan(int soDu, String tenTK, ATM atm) {
+    public TaiKhoan(String name, float soDu) {
+        this.name = name;
         this.soDu = soDu;
-        this.tenTK = tenTK;
-        this.atm = atm;
-    }
-
-    public void duaTheVaoATM() {
-        atm.nhanThe(this);
-    }
-    public void rutThe(){
-        atm.traThe();
-    }
-
-
-    @Override
-    public boolean kiemTraSoDu(int soTien) {
-        return soDu - soTien >= 50;
     }
 
     @Override
-    public void nhanThongBao(int soTienRut, boolean thanhCong) {
-        if(thanhCong){
-            System.out.println("Bạn đang rút tiền...");
-            System.out.println("Số dư ban đầu");
-            System.out.println("Số tiền rút: " + soTienRut);
-            soDu = soDu - soTienRut;
-            System.out.println("Số dư cuối: " + soDu);
+    public void kiemTraSoDu(float soTienRut) {
+        if (soTienRut <= soDu && soTienRut > 0) {
+            soDu -= soTienRut;
+            nhanThongBao("Giao dịch thành công ! Số tiền rút: " + soTienRut + "VNĐ. " + " Số dư còn lại: " + soDu);
         }
-        else{
-            System.out.println("Bạn đang rút tiền: ");
-            System.out.println("Số dư ban đầu");
-            System.out.println("Số tiền rút: " + soTienRut);
-            System.out.println("Không đủ tiền để rút");
+        else {
+            nhanThongBao("Giao dịch không thành công ! Số tiền rút không được vượt qua số dư !");
         }
+    }
+
+    @Override
+    public void nhanThongBao(String thongBao) {
+        System.out.println("Chủ tài khoản: " + name + ": " + thongBao);
     }
 }

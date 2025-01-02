@@ -13,7 +13,6 @@ public class BacDienCaoNhat extends BacDien {
     @Override
     public void tinhTien(int sokWh, double[] tongTien) {
         int kWhTrongBac = sokWh > min ? sokWh - (int) min : 0;
-
         // Tính tiền cho số kWh thuộc bậc cao nhất
         if (kWhTrongBac > 0) {
             double tien = kWhTrongBac * gia;

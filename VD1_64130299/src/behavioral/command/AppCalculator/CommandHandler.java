@@ -1,4 +1,4 @@
-package behavioral.command;
+package behavioral.command.AppCalculator;
 
 public class CommandHandler {
     float result = 0;
@@ -7,13 +7,9 @@ public class CommandHandler {
         return result;
     }
 
-    public void setResult(float result) {
-        this.result = result;
-    }
-
     public void handle(char operator, float operand) {
         float first_operand = result;
-        switch (operator) {
+        switch (operator){
             case '+':
                 result += operand;
                 break;

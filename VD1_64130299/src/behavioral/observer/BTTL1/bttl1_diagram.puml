@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Listener {
+    + void update(T t);
+}
+
+class Stream {
+    - List<T> events;
+    - List<Listener<T>> listeners;
+    + void addEvent(T t);
+    + void addListener(T t);
+}
+
+class Client implements Listener {
+   + void update(MonHoc mh);
+   + void hienThiDanhSash();
+}
+
+class MonHoc {
+    - String maMH,tenMonHoc;
+    + String toString();
+}
+
+Stream -> Listener : gửi thông báo
+
+
+@enduml

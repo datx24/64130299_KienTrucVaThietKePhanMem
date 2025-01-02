@@ -1,0 +1,50 @@
+@startuml
+
+title Mediator Pattern - Ứng dụng Thương Mại Điện Tử
+
+interface OrderMediator {
+    + sendMessage(message: String, sender: Participant): void
+}
+
+class EcommerceMediator {
+    - customer: Customer
+    - shop: Shop
+    - deliveryService: DeliveryService
+    + setCustomer(customer: Customer): void
+    + setShop(shop: Shop): void
+    + setDeliveryService(deliveryService: DeliveryService): void
+    + sendMessage(message: String, sender: Participant): void
+}
+
+abstract class Participant {
+    protected mediator: OrderMediator
+    + Participant(mediator: OrderMediator)
+    + send(message: String): void
+    + receive(message: String): void
+}
+
+class Customer extends Participant {
+    + placeOrder(item: String, deliveryService: String): void
+    + receive(message: String): void
+}
+
+class Shop extends Participant {
+    + processOrder(): void
+    + receive(message: String): void
+}
+
+class DeliveryService extends Participant {
+    + deliverOrder(): void
+    + confirmDelivery(): void
+    + receive(message: String): void
+}
+
+OrderMediator <|.. EcommerceMediator
+Participant <|-- Customer
+Participant <|-- Shop
+Participant <|-- DeliveryService
+EcommerceMediator --> Customer
+EcommerceMediator --> Shop
+EcommerceMediator --> DeliveryService
+
+@enduml

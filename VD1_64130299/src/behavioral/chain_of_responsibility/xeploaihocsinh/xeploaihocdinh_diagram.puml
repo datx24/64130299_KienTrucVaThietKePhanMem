@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract XepLoai {
+    - XepLoai handler;
+    + void setNextHandler(XepLoai handler)
+    + {abstract} String handleRequest(float diemTrungBinh);
+}
+
+class Yeu {
+}
+class TrungBing {
+}
+class Kha {
+}
+class Gioi {
+}
+class XuatSac {
+}
+
+class Client {
+    + String processXepLoai(float diemTrungBinh)
+}
+
+Client --> XepLoai
+XepLoai <|-- Yeu
+XepLoai <|-- TrungBing
+XepLoai <|-- Kha
+XepLoai <|-- Gioi
+XepLoai <|-- XuatSac
+
+
+@enduml

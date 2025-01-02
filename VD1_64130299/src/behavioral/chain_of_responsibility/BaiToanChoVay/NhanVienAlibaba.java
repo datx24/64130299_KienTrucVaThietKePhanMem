@@ -1,27 +1,31 @@
-package behavioral.chain_of_responsibility.btvidu;
+package behavioral.chain_of_responsibility.BaiToanChoVay;
 
-public abstract class NhanVienF88 {
-    private String ten, chucVu;
+public abstract class NhanVienAlibaba {
+    private String ten,chucVu;
     private int hanMucDuyetVay;
+    protected NhanVienAlibaba capTren;
 
-    public NhanVienF88(String ten, String chucVu, int hanMucDuyetVay) {
+    public NhanVienAlibaba(String ten, String chucVu, int hanMucDuyetVay) {
         this.ten = ten;
         this.chucVu = chucVu;
         this.hanMucDuyetVay = hanMucDuyetVay;
     }
 
+    public void setCapTren(NhanVienAlibaba capTren) {
+        this.capTren = capTren;
+    }
+
     public String getTen() {
         return ten;
     }
+
     public String getChucVu() {
         return chucVu;
     }
-
 
     public int getHanMucDuyetVay() {
         return hanMucDuyetVay;
     }
 
     public abstract void duyetKhoanVay(int soTienVay);
-    public abstract NhanVienF88 capTren(NhanVienF88 nv);
 }

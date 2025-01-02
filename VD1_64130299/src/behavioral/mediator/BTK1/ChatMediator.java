@@ -13,7 +13,7 @@ public class ChatMediator implements IChatMediator {
     @Override
     public void unregister(ChatUser user) {
         userMaps.remove(user.getId(),user);
-        System.out.println();
+        System.out.println(user.getName() + " đã rời khỏi phòng chat");
     }
 
     @Override

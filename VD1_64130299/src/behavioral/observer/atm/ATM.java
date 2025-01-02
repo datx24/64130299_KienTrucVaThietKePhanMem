@@ -1,22 +1,26 @@
 package behavioral.observer.atm;
 
-public class ATM {
-    TaiKhoanATM theATM;
-    void nhanThe(TaiKhoanATM atm){
-        this.theATM = atm;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ATM implements Subject{
+    private List<Observer> observers = new ArrayList<>();
+
+
+    @Override
+    public void dangKiTaiKhoan(Observer observer) {
+        observers.add(observer);
     }
-    void traThe(){
-        this.theATM = null;
+
+    @Override
+    public void huyDangKiTaiKhoan(Observer observer) {
+        observers.remove(observer);
     }
-    public void rutTien(int soTien) {
-        if(theATM != null){
-            if(theATM.kiemTraSoDu(soTien)==true){
-                theATM.nhanThongBao(soTien,true);
-            }
-            else {
-                theATM.nhanThongBao(soTien,false);
-            }
+
+    @Override
+    public void rutTien(float soTienRut) {
+        for(Observer observer: observers) {
+            observer.kiemTraSoDu(soTienRut);
         }
-        System.out.println("Xin đưa thẻ vào ATM");
     }
 }

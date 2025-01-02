@@ -3,25 +3,29 @@ package behavioral.observer.BTCA3;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TiGia {
-    private List<Listener> listeners = new ArrayList<>();
-    private float rate;
-    public void addListener(Listener listener) {
-        listeners.add(listener);
-    }
-    public void removeListener(Listener listener) {
-        listeners.remove(listener);
+public class TiGia implements Subject{
+    private List<Observer> observers = new ArrayList<>();
+    private float exchangeRate;
+
+    public void setExchangeRate(float exchangeRate) {
+        this.exchangeRate = exchangeRate;
+        notifyObserver();
     }
 
-    public void setRate(float newRate) {
-        this.rate = newRate;
-        System.out.println("Tỉ giá mới + " + rate + " USD-VND");
-        notifyListener();
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
     }
 
-    private void notifyListener() {
-        for(Listener listener: listeners) {
-            listener.update(rate);
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for(Observer observer: observers) {
+            observer.update(exchangeRate);
         }
     }
 }

@@ -31,5 +31,4 @@ public abstract class HoaDon {
     public final void templateMethod() {
         hienThiGioHang();
     }
-
 }

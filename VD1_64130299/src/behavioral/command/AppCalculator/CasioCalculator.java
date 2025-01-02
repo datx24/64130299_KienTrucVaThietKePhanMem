@@ -1,4 +1,4 @@
-package behavioral.command;
+package behavioral.command.AppCalculator;
 
 import java.util.Stack;
 
@@ -14,25 +14,19 @@ public class CasioCalculator {
     }
 
     public void undo() {
-        if(!undos.isEmpty()) {
-            ICommand command = undos.pop();
-            redos.push(command);
-            System.out.println("Undo: ");
-            command.unexcute();
-        }
+        ICommand command = undos.pop();
+        redos.push(command);
+        System.out.println("Undos: ");
+        command.unexcute();
     }
-
     public void redo() {
-        if(!redos.isEmpty()) {
-            ICommand command = redos.pop();
-            undos.push(command);
-            System.out.println("Redo: ");
-            command.excute();
-        }
+        ICommand command = redos.pop();
+        undos.push(command);
+        System.out.println("Redos: ");
+        command.excute();
     }
-
     public void clear() {
-        System.out.println("Clear: ");
+        System.out.println("Clear");
         handler.result = 0;
         undos.clear();
         redos.clear();
